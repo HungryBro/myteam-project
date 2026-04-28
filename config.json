@@ -1,0 +1,23 @@
+{
+  "agents": {
+    "chief": {
+      "role_description": "Chief Agent: Oversees overall strategy, coordinates other agents, and makes high-level decisions.",
+      "llm_provider": "OpenRouter",
+      "channel": "Discord"
+    },
+    "analyst": {
+      "role_description": "Analyst Agent: Focuses on market analysis, data interpretation, and generating insights for trading decisions.",
+      "llm_provider": "OpenRouter",
+      "channel": "Discord"
+    },
+    "executor": {
+      "role_description": "Executor Agent: Responsible for executing trading strategies, managing orders, and monitoring positions.",
+      "llm_provider": "OpenRouter",
+      "channel": "Discord"
+    }
+  },
+  "general_settings": {
+    "main_channel": "Discord",
+    "llm_provider": "OpenRouter"
+  }
+}
