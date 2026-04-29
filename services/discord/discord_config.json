@@ -1,0 +1,165 @@
+{
+  "agents": {
+    "chief": {
+      "name": "Chief",
+      "role": "CEO",
+      "description": "Chief Executive Officer: Oversees overall strategy, coordinates other agents, and makes high-level decisions.",
+      "permissions": {
+        "read": [
+          "openrouter_setting",
+          "opensource_github",
+          "ceo_office",
+          "company_reports",
+          "tech_lab",
+          "system_logs",
+          "marketing_hub",
+          "agent_coworking",
+          "war_room",
+          "trading_terminal",
+          "economic_calendar"
+        ],
+        "write": [
+          "ceo_office",
+          "company_reports",
+          "marketing_hub",
+          "agent_coworking",
+          "war_room"
+        ]
+      }
+    },
+    "analyst": {
+      "name": "Analyst",
+      "role": "Market Analyst",
+      "description": "Market Analyst: Focuses on market research, YouTube insights, and technical analysis.",
+      "permissions": {
+        "read": [
+          "openrouter_setting",
+          "opensource_github",
+          "ceo_office",
+          "company_reports",
+          "tech_lab",
+          "system_logs",
+          "marketing_hub",
+          "agent_coworking",
+          "war_room",
+          "trading_terminal",
+          "economic_calendar"
+        ],
+        "write": [
+          "tech_lab",
+          "trading_terminal",
+          "economic_calendar",
+          "agent_coworking",
+          "company_reports"
+        ]
+      }
+    },
+    "forex_executor": {
+      "name": "Forex Executor",
+      "role": "Forex Trading Executor",
+      "description": "Forex Trading Executor: Responsible for executing Forex trades via MT5 and managing positions.",
+      "permissions": {
+        "read": [
+          "openrouter_setting",
+          "opensource_github",
+          "ceo_office",
+          "company_reports",
+          "tech_lab",
+          "system_logs",
+          "marketing_hub",
+          "agent_coworking",
+          "war_room",
+          "trading_terminal",
+          "economic_calendar"
+        ],
+        "write": [
+          "trading_terminal",
+          "agent_coworking",
+          "war_room"
+        ]
+      }
+    },
+    "crypto_executor": {
+      "name": "Crypto Executor",
+      "role": "Crypto Trading Executor",
+      "description": "Crypto Trading Executor: Responsible for executing Crypto trades via Binance and managing positions.",
+      "permissions": {
+        "read": [
+          "openrouter_setting",
+          "opensource_github",
+          "ceo_office",
+          "company_reports",
+          "tech_lab",
+          "system_logs",
+          "marketing_hub",
+          "agent_coworking",
+          "war_room",
+          "trading_terminal",
+          "economic_calendar"
+        ],
+        "write": [
+          "trading_terminal",
+          "agent_coworking",
+          "war_room"
+        ]
+      }
+    }
+  },
+  "channels": {
+    "openrouter_setting": {
+      "name": "#openrouter_setting",
+      "category": "🌐 GENERAL",
+      "description": "OpenRouter API settings and configuration"
+    },
+    "opensource_github": {
+      "name": "#opensource_github",
+      "category": "🌐 GENERAL",
+      "description": "GitHub repository updates and open source discussions"
+    },
+    "ceo_office": {
+      "name": "#ceo_office",
+      "category": "🏢 EXECUTIVE DIRECT",
+      "description": "Chief executive decisions and directives"
+    },
+    "company_reports": {
+      "name": "#company_reports",
+      "category": "🏢 EXECUTIVE DIRECT",
+      "description": "Company performance reports and summaries"
+    },
+    "tech_lab": {
+      "name": "#tech_lab",
+      "category": "💻 OPERATIONS & TECH",
+      "description": "Technical development and experimentation"
+    },
+    "system_logs": {
+      "name": "#system_logs",
+      "category": "💻 OPERATIONS & TECH",
+      "description": "System logs and error tracking"
+    },
+    "marketing_hub": {
+      "name": "#marketing_hub",
+      "category": "📈 GROWTH & MARKETING",
+      "description": "Marketing initiatives and growth strategies"
+    },
+    "agent_coworking": {
+      "name": "#agent_coworking",
+      "category": "🤝 TEAM COLLABORATION",
+      "description": "Agent collaboration and teamwork"
+    },
+    "war_room": {
+      "name": "#war_room",
+      "category": "🤝 TEAM COLLABORATION",
+      "description": "Critical market situations and emergency coordination"
+    },
+    "trading_terminal": {
+      "name": "#trading_terminal",
+      "category": "📊 FINANCIAL & TRADING HUB",
+      "description": "Trading signals, positions, and execution reports"
+    },
+    "economic_calendar": {
+      "name": "#economic_calendar",
+      "category": "📊 FINANCIAL & TRADING HUB",
+      "description": "Economic events and market calendar"
+    }
+  }
+}
