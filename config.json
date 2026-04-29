@@ -1,19 +1,28 @@
 {
   "agents": {
     "chief": {
-      "role_description": "Chief Agent: Oversees overall strategy, coordinates other agents, and makes high-level decisions.",
+      "role_description": "Chief Executive Officer: Oversees overall strategy, coordinates other agents, and makes high-level decisions.",
       "llm_provider": "OpenRouter",
-      "channel": "Discord"
+      "channel": "Discord",
+      "enabled": true
     },
     "analyst": {
-      "role_description": "Analyst Agent: Focuses on market analysis, data interpretation, and generating insights for trading decisions.",
+      "role_description": "Market Analyst: Focuses on market research, YouTube insights, and technical analysis.",
       "llm_provider": "OpenRouter",
-      "channel": "Discord"
+      "channel": "Discord",
+      "enabled": true
     },
-    "executor": {
-      "role_description": "Executor Agent: Responsible for executing trading strategies, managing orders, and monitoring positions.",
+    "forex_executor": {
+      "role_description": "Forex Trading Executor: Responsible for executing Forex trades via MT5 and managing positions.",
       "llm_provider": "OpenRouter",
-      "channel": "Discord"
+      "channel": "Discord",
+      "enabled": true
+    },
+    "crypto_executor": {
+      "role_description": "Crypto Trading Executor: Responsible for executing Crypto trades via Binance and managing positions.",
+      "llm_provider": "OpenRouter",
+      "channel": "Discord",
+      "enabled": false
     }
   },
   "general_settings": {

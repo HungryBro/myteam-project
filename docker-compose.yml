@@ -11,11 +11,14 @@ services:
       OPENCLAW_GATEWAY_TOKEN: ${OPENCLAW_GATEWAY_TOKEN}
     volumes:
       - ./config.json:/app/config.json
+      - ./km-vault:/app/km-vault
+      - ./memory:/app/memory
+      - ./agents:/app/agents
     networks:
       - myteam-network
 
   tradingview-mcp:
-    image: tradingview-mcp:latest # Placeholder, replace with actual image if available
+    image: tradingview-mcp:latest
     container_name: tradingview-mcp
     ports:
       - "8080:8000"
@@ -33,7 +36,7 @@ services:
       - myteam-network
 
   crawl4ai:
-    image: crawl4ai/crawl4ai:latest # Placeholder, replace with actual image if available
+    image: crawl4ai/crawl4ai:latest
     container_name: crawl4ai
     ports:
       - "9000:8000"
@@ -56,7 +59,7 @@ services:
       - myteam-network
 
   discord-chief:
-    image: openclaw/discord-bot:latest # Placeholder, replace with actual image if available
+    image: openclaw/discord-bot:latest
     container_name: discord-chief
     environment:
       DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN_chief}
@@ -66,7 +69,7 @@ services:
       - myteam-network
 
   discord-analyst:
-    image: openclaw/discord-bot:latest # Placeholder, replace with actual image if available
+    image: openclaw/discord-bot:latest
     container_name: discord-analyst
     environment:
       DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN_analyst}
@@ -75,15 +78,25 @@ services:
     networks:
       - myteam-network
 
-  discord-executor:
-    image: openclaw/discord-bot:latest # Placeholder, replace with actual image if available
-    container_name: discord-executor
+  discord-forex-executor:
+    image: openclaw/discord-bot:latest
+    container_name: discord-forex-executor
     environment:
-      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN_executor}
+      DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN_forex_executor}
       DISCORD_SERVER_ID: ${DISCORD_SERVER_ID}
-      AGENT_NAME: executor
+      AGENT_NAME: forex_executor
     networks:
       - myteam-network
+
+  # discord-crypto-executor:
+  #   image: openclaw/discord-bot:latest
+  #   container_name: discord-crypto-executor
+  #   environment:
+  #     DISCORD_BOT_TOKEN: ${DISCORD_BOT_TOKEN_crypto_executor}
+  #     DISCORD_SERVER_ID: ${DISCORD_SERVER_ID}
+  #     AGENT_NAME: crypto_executor
+  #   networks:
+  #     - myteam-network
 
 networks:
   myteam-network:
