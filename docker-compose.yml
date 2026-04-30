@@ -105,3 +105,8 @@ services:
 networks:
   myteam-network:
     driver: bridge
+
+  # The Unified Trading MCP Server (trading-mcp) runs directly on a Windows machine
+  # because the MetaTrader5 Python Library requires access to the MT5 terminal
+  # which typically runs on Windows. Therefore, it is not included in this Docker Compose setup.
+  # Agents in Docker can access it via http://host.docker.internal:${TRADING_MCP_PORT}
