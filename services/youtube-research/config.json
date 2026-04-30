@@ -1,0 +1,39 @@
+{
+  "channels": [
+    {
+      "name": "The Wall Street Financial",
+      "handle": "@thewallstreetfinancial",
+      "url": "https://www.youtube.com/@thewallstreetfinancial"
+    },
+    {
+      "name": "DataDash",
+      "handle": "@DataDash",
+      "url": "https://www.youtube.com/@DataDash"
+    },
+    {
+      "name": "สาระสนเทรด",
+      "handle": "@sarasontrade",
+      "url": "https://www.youtube.com/@sarasontrade"
+    },
+    {
+      "name": "ทันโลกกับ Trader KP",
+      "handle": "@TraderKP",
+      "url": "https://www.youtube.com/@TraderKP"
+    },
+    {
+      "name": "TradingNut",
+      "handle": "@TradingNut",
+      "url": "https://www.youtube.com/@TradingNut"
+    },
+    {
+      "name": "The Moving Average",
+      "handle": "@TheMovingAverage",
+      "url": "https://www.youtube.com/@TheMovingAverage"
+    },
+    {
+      "name": "ครูแบงค์ สอนเทรด",
+      "handle": "@KruBankForex",
+      "url": "https://www.youtube.com/@KruBankForex"
+    }
+  ]
+}

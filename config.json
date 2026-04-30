@@ -7,7 +7,7 @@
       "enabled": true
     },
     "analyst": {
-      "role_description": "Market Analyst: Focuses on market research, YouTube insights, and technical analysis.",
+      "role_description": "Market Analyst: Focuses on market research, YouTube insights, and technical analysis. This agent is the only one authorized to use YouTube Research tools.",
       "llm_provider": "OpenRouter",
       "channel": "Discord",
       "enabled": true
