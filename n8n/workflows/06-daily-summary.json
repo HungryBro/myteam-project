@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "everyDay",
+        "hour": 20,
+        "minute": 0
+      },
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "id": "node1"
+    },
+    {
+      "parameters": {
+        "url": "http://openclaw-gateway/api/v1/execute",
+        "method": "POST",
+        "bodyParameters": [
+          {
+            "name": "workflow_name",
+            "value": "Daily Summary"
+          },
+          {
+            "name": "agent",
+            "value": "chief"
+          }
+        ]
+      },
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "id": "node2"
+    },
+    {
+      "parameters": {
+        "webhookUrl": "YOUR_DISCORD_WEBHOOK_URL_FOR_COMPANY_REPORTS",
+        "text": "Workflow { { $json.workflow_name } } (Agent: { { $json.agent } }) completed successfully! Check logs for details."
+      },
+      "name": "Discord Webhook",
+      "type": "n8n-nodes-base.discordWebhook",
+      "typeVersion": 1,
+      "id": "node3"
+    }
+  ],
+  "connections": {
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "input": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Discord Webhook",
+            "input": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "id": "06-daily-summary",
+  "name": "Daily Summary",
+  "active": true,
+  "settings": {},
+  "staticData": null,
+  "meta": {
+    "instanceId": "instance_06-daily-summary"
+  }
+}

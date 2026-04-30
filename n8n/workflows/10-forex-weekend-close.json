@@ -1,0 +1,78 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "everyWeek",
+        "weekday": "friday",
+        "hour": 22,
+        "minute": 0
+      },
+      "name": "Cron",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "id": "node1"
+    },
+    {
+      "parameters": {
+        "url": "http://openclaw-gateway/api/v1/execute",
+        "method": "POST",
+        "bodyParameters": [
+          {
+            "name": "workflow_name",
+            "value": "Forex Weekend Close"
+          },
+          {
+            "name": "agent",
+            "value": "forex_executor"
+          }
+        ]
+      },
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "id": "node2"
+    },
+    {
+      "parameters": {
+        "webhookUrl": "YOUR_DISCORD_WEBHOOK_URL_FOR_FOREX_TRADES",
+        "text": "Workflow { { $json.workflow_name } } (Agent: { { $json.agent } }) completed successfully! Check logs for details."
+      },
+      "name": "Discord Webhook",
+      "type": "n8n-nodes-base.discordWebhook",
+      "typeVersion": 1,
+      "id": "node3"
+    }
+  ],
+  "connections": {
+    "Cron": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "input": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Discord Webhook",
+            "input": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "id": "10-forex-weekend-close",
+  "name": "Forex Weekend Close",
+  "active": true,
+  "settings": {},
+  "staticData": null,
+  "meta": {
+    "instanceId": "instance_10-forex-weekend-close"
+  }
+}
