@@ -18,10 +18,14 @@ services:
       - myteam-network
 
   tradingview-mcp:
-    image: tradingview-mcp:latest
+    image: atilaahmet/tradingview-mcp:latest
+    restart: unless-stopped
     container_name: tradingview-mcp
     ports:
       - "8080:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
     networks:
       - myteam-network
 

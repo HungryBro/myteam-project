@@ -47,6 +47,8 @@ python3 ~/.openclaw/tools/trading.py <command> [args]
 | "Analyze AAPL technically" | `technical_analysis(symbol="AAPL", exchange="NASDAQ", screener="america", interval="1h")` |
 | "What is the RSI for BTC?" | `calculate_rsi(symbol="BTC-USD", period="14")` |
 | "Supertrend signal for AAPL?" | `calculate_supertrend(symbol="AAPL")` |
+| "Detailed analysis for BTC" | `coin_analysis(symbol="BTCUSDT", exchange="KUCOIN", timeframe="15m")` |
+| "Multi-timeframe analysis for BTC" | `multi_timeframe(symbol="BTCUSDT", exchange="KUCOIN")` |
 
 ### Backtesting
 | Intent | Tool |
@@ -60,9 +62,9 @@ python3 ~/.openclaw/tools/trading.py <command> [args]
 ### Sentiment & News
 | Intent | Tool |
 |--------|------|
-| "What is Reddit saying about BTC?" | `analyze_sentiment(symbol="BTC")` |
-| "Latest news on AAPL" | `fetch_news_summary(symbol="AAPL")` |
-| "Combine technical + sentiment" | `analyze_confluence(symbol="AAPL", exchange="NASDAQ")` |
+| "What is Reddit saying about BTC?" | `market_sentiment(symbol="BTC")` |
+| "Latest news on AAPL" | `financial_news(symbol="AAPL")` |
+| "Combine technical + sentiment" | `combined(symbol="AAPL", exchange="NASDAQ")` |
 
 ### Screener
 | Intent | Tool |
@@ -70,7 +72,16 @@ python3 ~/.openclaw/tools/trading.py <command> [args]
 | "Strong bullish stocks" | `screener_bullish(exchange="NASDAQ")` |
 | "Find oversold stocks" | `screener_oversold(exchange="NASDAQ")` |
 | "Scan Turkish BIST stocks" | `screener_bullish(exchange="BIST")` |
-| "Egyptian Exchange stocks" | `egx_stock_screen()` |
+| "Top gainers on KuCoin" | `top_gainers(exchange="KUCOIN", timeframe="15m", limit=25)` |
+| "Top losers on Binance" | `top_losers(exchange="BINANCE", timeframe="15m", limit=25)` |
+| "Bollinger squeeze scan" | `bollinger_scan(exchange="KUCOIN", timeframe="4h", bbw_threshold=0.04)` |
+| "Filter by rating" | `rating_filter(exchange="KUCOIN", timeframe="5m", rating=2)` |
+| "Consecutive bullish candles" | `consecutive_candles(exchange="KUCOIN", direction="up", min_count=3, timeframe="15m")` |
+| "Advanced candle patterns" | `candle_pattern(exchange="KUCOIN", timeframe="15m")` |
+| "Volume breakout scan" | `volume_breakout(exchange="KUCOIN", timeframe="15m")` |
+| "Volume confirmation for BTC" | `volume_confirm(symbol="BTCUSDT", exchange="KUCOIN", timeframe="15m")` |
+| "Smart volume scan" | `smart_volume(exchange="KUCOIN", min_volume_ratio=2.0)` |
+| "Multi-agent analysis for ETH" | `multi_agent(symbol="ETHUSDT", exchange="KUCOIN", timeframe="15m")` |
 
 ## Supported Symbols
 
@@ -92,3 +103,12 @@ python3 ~/.openclaw/tools/trading.py <command> [args]
 | EMA 20/50 Cross | `ema_cross` | Medium-term trends |
 | Supertrend (ATR) | `supertrend` | Strong trending markets |
 | Donchian Channel | `donchian` | Breakout / Turtle Trading |
+
+## Agent Access Control
+
+| Agent | TradingView MCP Access |
+|-------|------------------------|
+| Analyst | Full access to all 20+ tools. |
+| Forex Executor | Limited to `coin_analysis`, `multi_timeframe`, `yahoo_price`, `combined` for final price verification and cross-market analysis. |
+| Crypto Executor | Full access to all 20+ tools (currently disabled). |
+| Chief | Reads results from Analyst; does not directly invoke TradingView MCP tools. |
